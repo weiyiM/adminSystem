@@ -5,17 +5,20 @@
       "url":"index",
       "icon":"none",
       "opened":false,
+      "active":false,
       "children":[
         {
           "name":"测试1.1",
           "url":"index",
           "icon":"none",
+          "active":false,
           "opened":false
         },
         {
           "name":"测试1.2",
           "url":"index",
           "icon":"none",
+          "active":false,
           "opened":false
         }
       ]
@@ -25,18 +28,21 @@
       "url":"index",
       "icon":"none",
       "opened":true,
+      "active":false,
       "children":[
         {
           "name":"测试2.1",
-          "url":"index",
+          "url":"/test",
           "icon":"none",
-          "opened":false
+          "opened":false,
+          "active":false
         },
         {
           "name":"测试2.2",
-          "url":"index",
+          "url":"/test",
           "icon":"none",
-          "opened":false
+          "opened":false,
+          "active":false
         }
       ]
     }

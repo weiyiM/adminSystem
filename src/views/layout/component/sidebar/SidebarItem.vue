@@ -7,7 +7,7 @@
         <span class="sidebar-more" v-if="item.children.length >0"></span>
       </div>
       <ul v-if="item.children.length >0" v-show="item.opened" v-for="(child,i) in item.children">
-        <li v-text="child.name">item1.2  </li>
+        <li><router-link :to="child.url" v-text="child.name"></router-link> </li>
       </ul>
     </template>
 
@@ -26,7 +26,7 @@
       },
         methods: {
           sidebarClick(v){
-            console.log(v)
+            this.$emit('sidebarClick',v)
           }
         },
         created() {
@@ -35,6 +35,7 @@
     }
 </script>
 <style lang="less" rel="stylesheet/less" scoped>
+  @import "../../../../common/css/_variate";
   .sidebar-li1{
     font-size: 0.14rem;
     .sidebar-one-content{
@@ -81,14 +82,21 @@
         content:'';
         clear:both;
       }
-      background-color: #1f2d3d;
+      background-color: @sidebarChildColor;
       li{
-        padding: 0.2rem 0;
-        text-align: center;
-        cursor: pointer;
-        transition: border-color .3s,background-color .3s,color .3s;
-        &:hover{
-          background-color: #001528;
+        a{
+          display: block;
+          padding: 0.2rem 0;
+          text-align: center;
+          cursor: pointer;
+          color: @sidebarFont;
+          transition: border-color .3s,background-color .3s,color .3s;
+          &:hover{
+            background-color: #001528;
+          }
+          &.router-link-active{
+            color: @sidebarActiveFont;
+          }
         }
       }
     }

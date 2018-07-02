@@ -1,8 +1,7 @@
 <template>
   <div class="side-bar">
     <aside class="sidebar-ul1">
-      <sidebar-item :list="side_list"></sidebar-item>
-
+      <sidebar-item :list="side_list" @sidebarClick="sidebarClick"></sidebar-item>
       <!--<sidebar-item></sidebar-item>-->
     </aside>
   </div>
@@ -19,7 +18,17 @@
       components:{
         SidebarItem
       },
-        methods: {},
+        methods: {
+          sidebarClick(v){
+            console.log(v)
+            this.side_list[v].opened = !this.side_list[v].opened;
+            for(let i =0;i<this.side_list.length;i++){
+              if(i != v){
+                this.side_list[i].opened = false;
+              }
+            }
+          }
+        },
         created() {
             this.side_list = sideList.side;
         }

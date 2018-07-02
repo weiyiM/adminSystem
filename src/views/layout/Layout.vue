@@ -44,4 +44,10 @@
   background-color: rgb(48, 65, 86);
   color: #e0e0e0;
 }
+  .main-container{
+    min-height: 100%;
+    -webkit-transition: margin-left .28s;
+    transition: margin-left .28s;
+    margin-left: 180px;
+  }
 </style>
