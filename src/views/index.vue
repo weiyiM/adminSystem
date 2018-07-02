@@ -18,6 +18,6 @@
 </script>
 <style lang="less" rel="stylesheet/less" scoped>
 .m-index{
-  width: 19.2rem;
+
 }
 </style>
