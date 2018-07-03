@@ -4,7 +4,8 @@
       <div class="sidebar-one-content" @click="sidebarClick(index)">
         <span class="sidebar-icon "></span>
         <span v-text="item.name">item1</span>
-        <span class="sidebar-more" v-if="item.children.length >0"></span>
+        <!--<span class="sidebar-more" v-if="item.children.length >0"></span>-->
+        <i class="el-icon-arrow-down el-icon--right sidebar-more"></i>
       </div>
       <ul v-if="item.children.length >0" v-show="item.opened" v-for="(child,i) in item.children">
         <li><router-link :to="child.url" v-text="child.name"></router-link> </li>
@@ -62,12 +63,10 @@
         display: inline-block;
         width: 0.10rem;
         height: 0.10rem;
-        border: 1px solid #eee;
         margin-top: 0.04rem;
         position: absolute;
         top: 0.2rem;
         right:0.2rem;
-        background: url("../../../../common/images/edit.png");
       }
       &:after{
         display: block;

@@ -3,9 +3,8 @@
     <!--<div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside"></div>-->
     <sidebar class="sidebar-container"></sidebar>
     <div class="main-container">
-      <!--<navbar></navbar>-->
+      <navbar></navbar>
       <!--<tags-view></tags-view>-->
-      <div>登录</div>
       <app-main></app-main>
     </div>
   </div>
@@ -13,14 +12,16 @@
 </template>
 <script type="text/ecmascript-6">
   import AppMain from './component/appMain.vue';
-  import sidebar from './component/sidebar'
+  import sidebar from './component/sidebar';
+  import navbar from './component/Navbar';
     export default {
         data() {
             return {}
         },
       components: {
         AppMain,
-        sidebar
+        sidebar,
+        navbar
       },
         methods: {},
         created() {

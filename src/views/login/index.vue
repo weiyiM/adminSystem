@@ -8,7 +8,7 @@
         </el-form-item>
         <el-form-item  prop="pwd">
           <span class="icon-pwd icon"></span>
-          <el-input v-model="ruleForm.pwd"></el-input>
+          <el-input v-model="ruleForm.pwd" type="password"></el-input>
           <i class="icon-name icon-r"></i>
         </el-form-item>
         <el-form-item>
@@ -32,9 +32,7 @@
           name: [
             { required: true, message: '请输入账号名称', trigger: 'blur' }
           ],
-          pwd:[
-            { required: true, max: 5, message: '请输入密码', trigger: 'blur' }
-          ]
+          pwd:'password',
         }
       };
     },
@@ -42,7 +40,10 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            // this.$store.dispatch('LoginByUsername', this.ruleForm).then(() => {
+              this.$router.push({ path: '/' })
+            // }).catch(() => {
+            // })
           } else {
             console.log('error submit!!');
             return false;

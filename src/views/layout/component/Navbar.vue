@@ -1,40 +1,44 @@
 <template>
-  <el-menu class="navbar" mode="horizontal">
-
-  </el-menu>
+  <div class="navbar" >
+      <div @click="sidebar">logo</div>
+    <el-dropdown :hide-on-click="false">
+  <span class="el-dropdown-link">
+    个人中心
+  </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item>设置</el-dropdown-item>
+        <el-dropdown-item divided>退出</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
+  </div>
 </template>
 
 <script>
-// import { mapGetters } from 'vuex'
-// import Breadcrumb from '@/component/Breadcrumb'
-// import Hamburger from '@/component/Hamburger'
-// import ErrorLog from '@/component/ErrorLog'
-// import Screenfull from '@/component/Screenfull'
-// import LangSelect from '@/component/LangSelect'
-// import ThemePicker from '@/component/ThemePicker'
 
 export default {
   components: {
-    // Breadcrumb,
-    // Hamburger,
-    // ErrorLog,
-    // Screenfull,
-    // LangSelect,
-    // ThemePicker
+
   },
   computed: {
-    // ...mapGetters([
-    //   'sidebar',
-    //   'name',
-    //   'avatar'
-    // ])
+
   },
   methods: {
+    sidebar(){
 
+    }
   }
 }
 </script>
 
 <style rel="stylesheet/less" lang="less" scoped>
-
+  @import "../../../common/css/_variate";
+.navbar{
+  height: 0.5rem;
+  border: 1px solid @borderColor;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem;
+}
 </style>
