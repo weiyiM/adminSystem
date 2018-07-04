@@ -28,15 +28,26 @@ export const constantRouterMap = [
   { path: '/login', component: () => import('../views/login/index'), hidden: true },
   // { path: '/test', component: () => import('../views/test/index'), hidden: true },
   {
-    path: '',
+    path: '/',
     component: Layout,
-    redirect: 'index',
+    redirect: 'index/index'
+  },
+  {
+    path: '/index',
+    component: Layout,
+    redirect: 'index/index',
     children: [{
       path: 'index',
-      component: () => import('../views/index'),
+      component: () => import('../views/index/index'),
       name: 'index',
       meta: { title: 'index', icon: 'index', noCache: true }
-    }]
+    },{
+      path: 'index1',
+      component: () => import('../views/index/index'),
+      name: 'index1',
+      meta: { title: 'index', icon: 'index', noCache: true }
+    }
+    ]
   },
 
   {
@@ -48,7 +59,13 @@ export const constantRouterMap = [
       component: () => import('../views/test/index'),
       name: 'test',
       meta: { title: 'test', icon: 'guide', noCache: true }
-    }]
+    },
+      {
+        path: 'index2',
+        component: () => import('../views/test/index'),
+        name: 'test',
+        meta: { title: 'test', icon: 'guide', noCache: true }
+      }]
   }
 ]
 

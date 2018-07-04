@@ -1,16 +1,37 @@
 <template>
   <div class="sidebar-li1">
-    <template  v-for="(item,index) in list">
-      <div class="sidebar-one-content" @click="sidebarClick(index)">
-        <span class="sidebar-icon "></span>
-        <span v-text="item.name">item1</span>
-        <!--<span class="sidebar-more" v-if="item.children.length >0"></span>-->
-        <i class="el-icon-arrow-down el-icon--right sidebar-more"></i>
-      </div>
-      <ul v-if="item.children.length >0" v-show="item.opened" v-for="(child,i) in item.children">
-        <li><router-link :to="child.url" v-text="child.name"></router-link> </li>
-      </ul>
-    </template>
+    <!--<template  v-for="(item,index) in list">-->
+      <!--<div class="sidebar-one-content" @click="sidebarClick(index)">-->
+        <!--<span class="sidebar-icon "></span>-->
+        <!--<span v-text="item.name">item1</span>-->
+        <!--&lt;!&ndash;<span class="sidebar-more" v-if="item.children.length >0"></span>&ndash;&gt;-->
+        <!--<i class="el-icon-arrow-down el-icon&#45;&#45;right sidebar-more"></i>-->
+      <!--</div>-->
+      <!--<ul v-if="item.children.length >0" v-show="item.opened" v-for="(child,i) in item.children">-->
+        <!--<li><router-link :to="child.url" v-text="child.name"></router-link> </li>-->
+      <!--</ul>-->
+    <!--</template>-->
+
+        <template v-for="(items,index) in list" >
+          <el-submenu :index="items.url" v-if="items.children.length >0" :key="items.name">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span slot="title">{{items.name}}</span>
+            </template>
+            <template v-for="(item,i) in items.children" >
+              <router-link :to="items.url+'/'+item.url" :key="item.name">
+                <el-menu-item :index="items.url+'/'+item.url">{{item.name}}</el-menu-item>
+              </router-link>
+            </template>
+          </el-submenu>
+          <router-link :to="items.url" v-else>
+           <el-menu-item :index="items.url" >
+              <i class="el-icon-setting"></i>
+              <span slot="title">{{items.name}}</span>
+           </el-menu-item>
+          </router-link>
+        </template>
+
 
   </div>
 </template>
@@ -18,7 +39,9 @@
     export default {
       name: 'SidebarItem',
         data() {
-            return {}
+            return {
+
+            }
         },
       props: {
         list: {
@@ -28,7 +51,8 @@
         methods: {
           sidebarClick(v){
             this.$emit('sidebarClick',v)
-          }
+          },
+
         },
         created() {
           console.log(this.list)

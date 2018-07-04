@@ -1,10 +1,18 @@
 <template>
   <div class="navbar" >
-      <div @click="sidebar">logo</div>
+    <svg t="1492500959545" @click="sidebar()" class="hamburger" :class="{'is-active':isActive}" style="" viewBox="0 0 1024 1024"
+         version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1691" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24">
+      <path d="M966.8023 568.849776 57.196677 568.849776c-31.397081 0-56.850799-25.452695-56.850799-56.850799l0 0c0-31.397081 25.452695-56.849776 56.850799-56.849776l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.849776l0 0C1023.653099 543.397081 998.200404 568.849776 966.8023 568.849776z"
+            p-id="1692"></path>
+      <path d="M966.8023 881.527125 57.196677 881.527125c-31.397081 0-56.850799-25.452695-56.850799-56.849776l0 0c0-31.397081 25.452695-56.849776 56.850799-56.849776l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.849776l0 0C1023.653099 856.07443 998.200404 881.527125 966.8023 881.527125z"
+            p-id="1693"></path>
+      <path d="M966.8023 256.17345 57.196677 256.17345c-31.397081 0-56.850799-25.452695-56.850799-56.849776l0 0c0-31.397081 25.452695-56.850799 56.850799-56.850799l909.605623 0c31.397081 0 56.849776 25.452695 56.849776 56.850799l0 0C1023.653099 230.720755 998.200404 256.17345 966.8023 256.17345z"
+            p-id="1694"></path>
+    </svg>
+ <!--<span @click="sidebar(false)" class="navbar-sidebar">展开</span>-->
+    <!--<span @click="sidebar(true)" class="navbar-sidebar"> 收起</span>-->
     <el-dropdown :hide-on-click="false">
-  <span class="el-dropdown-link">
-    个人中心
-  </span>
+      <span>个人中心</span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item>设置</el-dropdown-item>
         <el-dropdown-item divided>退出</el-dropdown-item>
@@ -14,16 +22,31 @@
 </template>
 
 <script>
-
+  import store  from '../../../vuex/index.js';
 export default {
+
   components: {
 
   },
   computed: {
 
   },
+  data(){
+    return{
+      isActive:false
+    }
+  },
   methods: {
-    sidebar(){
+    sidebar(v){
+      store.state.isCollapse = !store.state.isCollapse;
+      let main = document.getElementsByClassName("main-container")[0];
+      if(store.state.isCollapse){
+        main.style.marginLeft = '0.63rem';
+        this.isActive = true;
+      }else{
+        main.style.marginLeft = '1.8rem';
+        this.isActive = false;
+      }
 
     }
   }
@@ -40,5 +63,19 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 0.2rem;
+  .navbar-sidebar{
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    cursor: pointer;
+  }
 }
+  .hamburger.is-active {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  .hamburger {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 </style>

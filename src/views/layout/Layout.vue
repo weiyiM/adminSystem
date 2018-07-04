@@ -31,9 +31,9 @@
 </script>
 <style lang="less" rel="stylesheet/less" scoped>
 .sidebar-container{
-  -webkit-transition: width 0.28s;
-  transition: width 0.28s;
-  width: 1.8rem !important;
+  /*-webkit-transition: width 0.28s;*/
+  /*transition: width 0.28s;*/
+  /*width: 1.8rem !important;*/
   height: 100%;
   position: fixed;
   font-size: 0;
@@ -47,8 +47,8 @@
 }
   .main-container{
     min-height: 100%;
-    -webkit-transition: margin-left .28s;
-    transition: margin-left .28s;
-    margin-left: 180px;
+    -webkit-transition: margin-left 0.28s;
+    transition: margin-left 0.28s;
+    margin-left: 1.8rem;
   }
 </style>

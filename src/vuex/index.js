@@ -1,25 +1,33 @@
-/**
- * Created by syen on 2017/12/25.
- */
-import Vue from 'vue'
-import  Vuex from 'vuex'
-import * as actions from './actions'
-import * as getters from './getters'
-import  state from './states'
-import mutations from './mutations'
-import createLogger from 'vuex/dist/logger'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-const  debug  = process.env.NODE_ENV !=='production'
-
-export default  new Vuex.Store({
-  actions,
-  getters,
-  state,
-  mutations,
-  strict:debug,
-  plugins:debug? [createLogger()]:[]
+let store= new Vuex.Store({
+	state: {
+	    route: {},
+	    now:null,
+	    number:0,
+    isCollapse:false
+	},
+	mutations: {
+	    add(state,route) {
+	    	state.now=route.name;
+	    	var len=Object.keys(state.route);
+	    	if (len.length<5||!!state.route[route.name]) {
+    			state.route[route.name]=route.path;
+	    	}else{
+	    		delete state.route[len[0]]
+    			state.route[route.name]=route.path;
+	    	}
+	    },
+	    remove(state,name){
+	    	Vue.delete(state.route,name)
+	    	// delete state.route[name]
+	    }
+	}
 })
 
+
+export default store

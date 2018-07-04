@@ -2,47 +2,35 @@
   "side":[
     {
       "name":"测试1",
-      "url":"index",
+      "url":"/index",
       "icon":"none",
-      "opened":false,
-      "active":false,
       "children":[
         {
           "name":"测试1.1",
           "url":"index",
-          "icon":"none",
-          "active":false,
-          "opened":false
+          "icon":"none"
         },
         {
           "name":"测试1.2",
-          "url":"index",
-          "icon":"none",
-          "active":false,
-          "opened":false
+          "url":"index1",
+          "icon":"none"
         }
       ]
     },
     {
       "name":"测试2",
-      "url":"index",
+      "url":"/test",
       "icon":"none",
-      "opened":true,
-      "active":false,
       "children":[
         {
           "name":"测试2.1",
-          "url":"/test",
-          "icon":"none",
-          "opened":false,
-          "active":false
+          "url":"index",
+          "icon":"none"
         },
         {
           "name":"测试2.2",
-          "url":"/test",
-          "icon":"none",
-          "opened":false,
-          "active":false
+          "url":"index2",
+          "icon":"none"
         }
       ]
     }
