@@ -33,6 +33,7 @@
     padding: 0.15rem;
     margin-bottom: 0.2rem;
     .flex-row(space-between);
+    font-weight: 600;
     span{
       display: block;
     }
