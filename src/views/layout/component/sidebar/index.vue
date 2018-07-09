@@ -1,18 +1,24 @@
 <template>
-      <el-menu  class="el-menu-vertical-demo"
-                mode="vertical"
-                :default-active="$route.path"
-                :collapse="isCollapse"
-                :show-timeout="0"
-                :hide-timeout="0"
-                background-color="#304156"
-                text-color="#bfcbd9"
-                active-text-color="#409EFF"
-                unique-opened
-                @open="handleOpen"
-                @close="handleClose">
-        <sidebar-item :list="side_list" ></sidebar-item>
-      </el-menu>
+  <div>
+    <router-link to="/index/userIndex" key="user">
+        <h3 class="m-system-name">后台管理系统 </h3>
+    </router-link>
+    <el-menu  class="el-menu-vertical-demo m-sidebar"
+              mode="vertical"
+              :default-active="$route.path"
+              :collapse="isCollapse"
+              :show-timeout="0"
+              :hide-timeout="0"
+              text-color="#fff"
+              active-text-color="#fff"
+              unique-opened
+              @open="handleOpen"
+              @close="handleClose">
+      <sidebar-item :list="side_list" ></sidebar-item>
+    </el-menu>
+    <!--<sidebar-item :list="side_list" ></sidebar-item>-->
+  </div>
+
 
 </template>
 
@@ -57,5 +63,14 @@
     }
 </script>
 <style lang="less" rel="stylesheet/less" scoped>
-
+.m-system-name{
+  font-size: 0.2rem;
+  line-height: 0.4rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #e7eef1;
+  margin: 0.2rem;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
 </style>

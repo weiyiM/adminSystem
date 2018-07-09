@@ -1,27 +1,48 @@
 <template>
   <div class="login-status">
-    <div class="login-box">
-      <el-form :model="ruleForm" :rules="rules" ref="ruleForm"  >
-        <el-form-item  prop="name">
-          <i class="icon-name icon"></i>
-          <el-input v-model="ruleForm.name"></el-input>
-        </el-form-item>
-        <el-form-item  prop="pwd">
-          <span class="icon-pwd icon"></span>
-          <el-input v-model="ruleForm.pwd" type="password"></el-input>
-          <i class="icon-name icon-r"></i>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-        </el-form-item>
-      </el-form>
+    <login-head></login-head>
+    <div class="login-content">
+      <div class="login-box">
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm"  >
+          <h3 class="login-head">用户登录</h3>
+          <el-form-item  prop="name">
+            <i class="icon-person icon"></i>
+            <el-input v-model="ruleForm.name" class="m-input"></el-input>
+          </el-form-item>
+          <el-form-item  prop="pwd">
+            <span class="icon-pwd icon"></span>
+            <el-input v-model="ruleForm.pwd" type="password" class="m-input"></el-input>
+            <!--<i class="icon-pwd icon-r"></i>-->
+          </el-form-item>
+          <!--<el-form-item  prop="pwd">-->
+            <!--<span class="icon-pwd icon"></span>-->
+            <!--<el-input v-model="ruleForm.pwd" type="password" class="m-input"></el-input>-->
+            <!--&lt;!&ndash;<i class="icon-pwd icon-r"></i>&ndash;&gt;-->
+          <!--</el-form-item>-->
+          <el-form-item class="m-btn">
+            <el-button type="primary" @click="submitForm('ruleForm')">登 &nbsp;&nbsp;录</el-button>
+          </el-form-item>
+          <el-form-item >
+            <el-checkbox  name="type">记住密码</el-checkbox>
+            <p class="m-forget-pwd">忘记密码？</p>
+          </el-form-item>
+        </el-form>
+      </div>
     </div>
+
+    <foot></foot>
   </div>
 
 </template>
 
 <script>
+  import loginHead from '../../components/common/header';
+  import foot from '../../components/common/footer'
   export default {
+    components:{
+      loginHead,
+      foot
+    },
     data() {
       return {
         ruleForm: {
@@ -55,55 +76,83 @@
 </script>
 
 <style lang="less" rel="stylesheet/less" scoped>
+  @import "../../common/css/_variate";
 .login-status{
-  position: fixed;
-  background-color: #2d3a4b;
-  width: 100%;
   height: 100%;
-  .login-box{
-    width: 5.2rem;
-    height: 3.5rem;
-    padding: 0.4rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-2.6rem,-1.75rem);
-    -moz-transform:translate(-2.6rem,-1.75rem);
-    transform: translate(-2.6rem,-1.75rem);
-    .el-form-item{
-      vertical-align: middle;
-      position: relative;
-      /*height: 0.4rem;*/
-      .icon{
-        width: 0.2rem;
-        height: 0.2rem;
-        position: absolute;
-        display: inline-block;
-        top:0.1rem;
-        left: 0.1rem;
-        z-index: 100;
+  .login-content{
+    position: fixed;
+    background-color: @mainColor;
+    width: 100%;
+    height: 100%;
+    .login-box{
+      width: 3.6rem;
+       height: 4.2rem;
+      padding: 0.2rem;
+      position: absolute;
+      top: 40%;
+      right: 2.2rem;
+      background-color: #fff;
+      -webkit-transform: translate(0, -1.6rem);
+      transform: translate(0,-1.6rem);
+      border-radius: 5px;
+      .login-head{
+        margin-bottom: 0.4rem;
+        font-size: 0.25rem;
+        color: @mainColor;
       }
-      .icon-r{
-        width: 0.2rem;
-        height: 0.2rem;
-        position: absolute;
-        display: inline-block;
-        top:0.1rem;
-        right: 0.1rem;
-        z-index: 100;
-      }
-      .icon-name{
-        background: url("../../common/images/edit.png");
-      }
-      .icon-pwd{
-        background: url("../../common/images/edit.png");
-      }
-      button{
-        width: 5.2rem;
-        text-align: center;
+      .el-form-item{
+        vertical-align: middle;
+        position: relative;
+        /*height: 0.4rem;*/
+        .icon{
+          width: 0.25rem;
+          height: 0.25rem;
+          position: absolute;
+          display: inline-block;
+          top:0.145rem;
+          left: 0.2rem;
+          z-index: 100;
+        }
+        .icon-person{
+          background: url("../../common/images/person.png");
+          background-size: 100% 100%;
+        }
+        .icon-r{
+          width: 0.2rem;
+          height: 0.2rem;
+          position: absolute;
+          display: inline-block;
+          top:0.185rem;
+          right: 0.1rem;
+          z-index: 100;
+        }
+        .icon-pwd{
+          background: url("../../common/images/pwd.png") no-repeat ;
+          background-size: 100% 100%;
+        }
+        button{
+          width: 3.6rem;
+          height: 0.54rem;
+          text-align: center;
+          font-size: 0.2rem;
+          background-color: @btnActiveColor;
+          border-color: @btnActiveColor;
+          margin-top: 1rem;
+
+        }
+        .m-forget-pwd{
+          color: @greyColor;
+          /*display: inline-block;*/
+          position: absolute;
+          top:0;
+          right: 0;
+          cursor: pointer;
+        }
       }
     }
   }
+
 }
+
 
 </style>

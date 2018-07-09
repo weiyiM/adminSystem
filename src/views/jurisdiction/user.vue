@@ -1,9 +1,8 @@
 <template>
-<div>
-  测试
-  <router-view/>
-</div>
 
+<div>
+  用户数据管理
+</div>
 </template>
 <script type="text/ecmascript-6">
     export default {

@@ -25,6 +25,9 @@ let store= new Vuex.Store({
 	    remove(state,name){
 	    	Vue.delete(state.route,name)
 	    	// delete state.route[name]
+
+
+        // this.$store.commit('remove',name)调用此方法
 	    }
 	}
 })

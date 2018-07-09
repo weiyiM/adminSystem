@@ -15,12 +15,15 @@
         <template v-for="(items,index) in list" >
           <el-submenu :index="items.url" v-if="items.children.length >0" :key="items.name">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i :class="items.icon" class="icon"></i>
               <span slot="title">{{items.name}}</span>
             </template>
             <template v-for="(item,i) in items.children" >
               <router-link :to="items.url+'/'+item.url" :key="item.name">
-                <el-menu-item :index="items.url+'/'+item.url">{{item.name}}</el-menu-item>
+                <el-menu-item :index="items.url+'/'+item.url">
+                  <i  class="icon"></i>
+                  <span>{{item.name}}</span>
+                </el-menu-item>
               </router-link>
             </template>
           </el-submenu>
@@ -62,7 +65,29 @@
 <style lang="less" rel="stylesheet/less" scoped>
   @import "../../../../common/css/_variate";
   .sidebar-li1{
-    font-size: 0.14rem;
+    font-size: 0.16rem;
+    .icon{
+      display: inline-block;
+      width: 0.25rem;
+      height: 0.25rem;
+      margin-right: 0.2rem;
+      &.icon-person-side{
+        background: url("../../../../common/images/icon-person-side.png");
+        background-size: 100% 100%;
+      }
+      &.icon-product{
+        background: url("../../../../common/images/icon-product.png");
+        background-size: 100% 100%;
+      }
+      &.icon-order{
+        background: url("../../../../common/images/icon-order.png");
+        background-size: 100% 100%;
+      }
+      &.icon-activity{
+        background: url("../../../../common/images/icon-activity.png");
+        background-size: 100% 100%;
+      }
+    }
     .sidebar-one-content{
       padding: 0.2rem 0.2rem;
       position: relative;
@@ -81,7 +106,7 @@
         height: 0.15rem;
         border: 1px solid #eee;
         margin-right: 0.1rem;
-        background: url("../../../../common/images/edit.png");
+        /*background: url("../../../../common/images/edit.png");*/
       }
       .sidebar-more{
         display: inline-block;
@@ -116,9 +141,6 @@
           transition: border-color .3s,background-color .3s,color .3s;
           &:hover{
             background-color: #001528;
-          }
-          &.router-link-active{
-            color: @sidebarActiveFont;
           }
         }
       }
