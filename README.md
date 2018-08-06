@@ -1,4 +1,10 @@
+# vue-demo
 
+> A Vue.js project
+
+## Build Setup
+
+``` bash
 # install dependencies
 npm install
 
@@ -8,24 +14,17 @@ npm run dev
 # build for production with minification
 npm run build
 
---src
-   --assets//
-   --base//
-   --common//css，js，image，json
-   --components
-      --common //公用组件
-   --router
-      --router.js//路由
-   --views//页面组件
-     --layout //公用侧边，头部组件
-   --vuex
-      --index.js//公用数据
-    --filter.js //过滤器
+# build for production and view the bundle analyzer report
+npm run build --report
 
-此项目已将 安装
-   elementui
-   vuex
-   axios
-   echarts
-   es6-promise
-   less
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
+```
+
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
