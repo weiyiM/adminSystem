@@ -7,6 +7,10 @@ import axios from 'axios'
 import 'lib-flexible'
 Vue.config.productionTip = false
 
+//处理移动端click事件300毫秒延迟。
+import FastClick from 'fastclick'
+FastClick.attach(document.body);
+
 import promise from 'es6-promise';//解决axios在ie9下不生效的方法
 promise.polyfill();
 
