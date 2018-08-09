@@ -7,6 +7,12 @@ import axios from 'axios'
 import 'lib-flexible'
 Vue.config.productionTip = false
 
+//mint-ui
+import Mint from 'mint-ui';
+Vue.use(Mint);
+import 'mint-ui/lib/style.css'
+
+
 //处理移动端click事件300毫秒延迟。
 import FastClick from 'fastclick'
 FastClick.attach(document.body);
