@@ -1,13 +1,25 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import layout from '../views/layout/index';
+import Layout from '../views/layout/index';
 
 Vue.use(Router)
 
 
 export const constantRouterMap = [
-    { path: '/', component: layout, hidden: true },
-  // { path: '/login', component: () => import('../views/login/index'), hidden: true },
+  { path: '/login', component: Layout, hidden: true },
+  {
+    path: '/index',
+    component: Layout,
+    redirect: 'index/index',
+    children: [{
+      path: 'index',
+      component: () => import('../views/index/index'),
+      name: 'index',
+      meta: { title: 'index', icon: 'index', noCache: true }
+    }
+    ],
+
+  },
 
 ]
 

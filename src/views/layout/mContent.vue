@@ -1,6 +1,6 @@
 <template>
-    <div>
-      中间
+    <div class="m-content">
+      <router-view ></router-view>
     </div>
 
 </template>
@@ -19,6 +19,8 @@
         }
     }
 </script>
-<style lang="less" rel="stylesheet/less" scoped>
-
+<style lang="less" rel="stylesheet/less">
+.m-content{
+  padding: 10px 0;
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
 
-      <mt-tabbar v-model="selected">
+      <mt-tabbar v-model="selected" :fixed="true">
         <mt-tab-item id="外卖">
           <img slot="icon" src="">
           外卖
@@ -25,7 +25,8 @@
     export default {
         data() {
             return {
-                name: ''
+                name: '',
+              selected:'我的'
             }
         },
         components: {},
