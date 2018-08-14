@@ -39,7 +39,7 @@
         </div>
       </div>
 
-      <share></share>
+      <share v-if="show_fixed" @fixedClick="fixedClick"></share>
     </div>
 
 </template>
@@ -52,7 +52,8 @@
     export default {
         data() {
             return {
-              show_modal: true,
+              show_modal: false,
+              show_fixed:true,
               items: [{
                 title: '你的名字',
                 href: 'http://google.com',   url: 'http://www.baidu.com/img/bd_logo1.png'
@@ -71,6 +72,9 @@
         methods: {
           closeModal(){
             this.show_modal = false;
+          },
+          fixedClick(){
+            this.show_fixed = false;
           }
         },
         created() {
