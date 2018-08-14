@@ -22,6 +22,22 @@
         <ctx></ctx>
         <ctx></ctx>
       </div>
+      <div class="m-modal" v-if="show_modal">
+        <div class="m-modal-state">
+          <div class="m-modal-head">
+            <span class="m-close" @click="closeModal"> x </span>
+          </div>
+          <div class="m-modal-content">
+            <h3>文案、图片已保存成功</h3>
+            <p>图片已保存完成，复制文案即可
+              一键发圈。
+            </p>
+          </div>
+          <div class="m-modal-foot">
+            <span class="m-modal-foot-btn">复制文案</span>
+          </div>
+        </div>
+      </div>
     </div>
 
 </template>
@@ -33,7 +49,7 @@
     export default {
         data() {
             return {
-                name: '',
+              show_modal: true,
               items: [{
                 title: '你的名字',
                 href: 'http://google.com',   url: 'http://www.baidu.com/img/bd_logo1.png'
@@ -48,7 +64,11 @@
           search,
           ctx
         },
-        methods: {},
+        methods: {
+          closeModal(){
+            this.show_modal = false;
+          }
+        },
         created() {
 
         }
@@ -56,6 +76,7 @@
 </script>
 <style lang="less" rel="stylesheet/less">
   @import "../../common/css/index";
+  @import "../../common/css/modal";
   .mint-swipe {
     height: 280px;
     .img {
@@ -88,4 +109,5 @@
   .m-index-section{
 
   }
+
 </style>
