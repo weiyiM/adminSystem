@@ -85,7 +85,7 @@
         .m-sale{
           color: #a4a4a4;
           font-size: 22px;
-          margin-right: 20px;
+          margin-right: 40px;
         }
       }
       .m-section-text{

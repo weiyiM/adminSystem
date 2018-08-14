@@ -1,15 +1,15 @@
 <template>
   <ul class="m-icon-list">
     <li>
-      <img src="" class="m-icon" alt="">
+      <img src="/static/images/icon-like.jpg" class="m-icon" alt="">
       1219
     </li>
     <li >
-      <img src="" class="m-icon" alt="">
+      <img src="/static/images/icon-lian.jpg" class="m-icon" alt="">
       复制链接
     </li>
     <li>
-      <img src="" class="m-icon" alt="">
+      <img src="/static/images/icon-share.jpg" class="m-icon" alt="">
       转发
     </li>
   </ul>
@@ -31,10 +31,9 @@
       font-size: 22px;
       .m-icon{
         display: block;
-        width: 25px;
-        height: 25px;
+        width: 40px;
+        height: 40px;
         background-color: #666666;
-        margin-bottom: 8px;
       }
     }
 

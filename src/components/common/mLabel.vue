@@ -21,15 +21,21 @@
     height: 70px;
     .m-text{
       font-size: 14px;
+     z-index: 100;
+      position: absolute;
+      top:0;
+      right: 14px;
+      color: #fff;
     }
-    /*.m-triangle{*/
-    /*position: relative;*/
-    /*width: 0;*/
-    /*height: 0;*/
-    /*border-width: 70px;*/
-    /*border-style: solid;*/
-    /*border-color: red transparent transparent transparent;*/
-    /*z-index: 1;*/
-    /*}*/
+    .m-triangle{
+      position: absolute;
+      top:0;
+      right: 0;
+      transform: rotate(-40deg);
+      width: 79px;
+      height: 79px;
+      background: url("/static/images/icon-label.jpg");
+      background-size: 100%;
+    }
   }
 </style>
