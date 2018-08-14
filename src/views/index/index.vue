@@ -38,6 +38,8 @@
           </div>
         </div>
       </div>
+
+      <share></share>
     </div>
 
 </template>
@@ -46,6 +48,7 @@
   import navbar from '../../components/common/navbar';
   import search from '../../components/common/search';
   import ctx from './components/ctx';
+  import share from '../../components/common/share';
     export default {
         data() {
             return {
@@ -62,7 +65,8 @@
         components: {
           navbar,
           search,
-          ctx
+          ctx,
+          share
         },
         methods: {
           closeModal(){
